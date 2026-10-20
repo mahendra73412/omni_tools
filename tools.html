@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Online Tools - OmniTools Directory</title>
+  <meta name="description" content="Browse our complete directory of free online browser tools: Word Counter, Canvas Image Resizer, Percentage Calculator, JSON Formatter, and QR Code Generator.">
+  <link rel="canonical" href="https://example.com/tools.html">
+
+  <meta property="og:title" content="All Online Tools - OmniTools Directory">
+  <meta property="og:description" content="Explore free, private, client-side tools for text, images, math, JSON, and QR codes.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/tools.html">
+
+  <script>
+    (function() {
+      var saved = localStorage.getItem('omnitools_theme');
+      var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && dark)) {
+        document.documentElement.classList.add('dark-theme');
+      }
+    })();
+  </script>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Shared Header -->
+  <header id="site-header" class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-logo" aria-label="OmniTools Homepage">
+        <div class="brand-icon-box">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+          </svg>
+        </div>
+        <span>OmniTools</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="tools.html" class="nav-link active">All Tools</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="theme-toggle-btn" aria-label="Toggle dark/light mode" title="Toggle theme">
+          <svg class="theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <svg class="theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+        </button>
+
+        <button type="button" class="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-nav-drawer">
+      <ul class="mobile-nav-links">
+        <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+        <li><a href="tools.html" class="mobile-nav-link active">All Tools</a></li>
+        <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+        <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Page Banner -->
+  <div class="tool-page-header">
+    <div class="container tool-header-content">
+      <div class="tool-header-info">
+        <span class="section-tag">Catalog</span>
+        <h1>All Online Browser Tools</h1>
+        <p>A comprehensive collection of free browser-based utilities. Filter by category or search below.</p>
+      </div>
+      <div class="tool-privacy-pill">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        <span>Zero Data Uploads · 100% Private</span>
+      </div>
+    </div>
+  </div>
+
+  <main class="site-main">
+    <div class="container">
+
+      <!-- Search & Filters -->
+      <div class="tools-search-bar" style="margin-top: 1rem;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--text-muted); flex-shrink:0;">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input type="text" id="tool-search-input" class="search-input" placeholder="Search by tool name or function..." aria-label="Search tools">
+        <button type="button" id="search-clear-btn" class="search-clear-btn" aria-label="Clear search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="category-filter-pills" role="tablist">
+        <button type="button" class="filter-pill active" data-category="all">All Tools (5)</button>
+        <button type="button" class="filter-pill" data-category="text">Text Tools</button>
+        <button type="button" class="filter-pill" data-category="image">Image Tools</button>
+        <button type="button" class="filter-pill" data-category="calculator">Calculators</button>
+        <button type="button" class="filter-pill" data-category="developer">Developer Tools</button>
+        <button type="button" class="filter-pill" data-category="utility">QR Codes</button>
+      </div>
+
+      <!-- Tools Grid -->
+      <div class="tools-grid" style="margin-bottom: 3.5rem;">
+
+        <!-- 1. Word Counter -->
+        <article class="tool-card" data-category="text">
+          <div class="tool-card-header">
+            <div class="tool-card-icon icon-blue">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="4 7 4 4 20 4 20 7"/>
+                <line x1="9" y1="20" x2="15" y2="20"/>
+                <line x1="12" y1="4" x2="12" y2="20"/>
+              </svg>
+            </div>
+            <span class="badge badge-primary">Text Analysis</span>
+          </div>
+          <h2 class="tool-card-title">Word Counter</h2>
+          <p class="tool-card-description">
+            Count words, characters with spaces, characters without spaces, sentences, and paragraphs in real time. Features reading time estimation and case conversion.
+          </p>
+          <div class="tool-card-footer">
+            <a href="word-counter.html" class="btn btn-outline btn-sm" style="width: 100%;">
+              <span>Launch Word Counter</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- 2. Image Resizer -->
+        <article class="tool-card" data-category="image">
+          <div class="tool-card-header">
+            <div class="tool-card-icon icon-emerald">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                <circle cx="8.5" cy="8.5" r="1.5"/>
+                <polyline points="21 15 16 10 5 21"/>
+              </svg>
+            </div>
+            <span class="badge badge-success">Image Processing</span>
+          </div>
+          <h2 class="tool-card-title">Image Resizer</h2>
+          <p class="tool-card-description">
+            Resize photos, pictures, and graphics in your browser using the HTML5 Canvas API. Lock aspect ratio, select WebP/PNG/JPEG, and download instantly.
+          </p>
+          <div class="tool-card-footer">
+            <a href="image-resizer.html" class="btn btn-outline btn-sm" style="width: 100%;">
+              <span>Launch Image Resizer</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- 3. Percentage Calculator -->
+        <article class="tool-card" data-category="calculator">
+          <div class="tool-card-header">
+            <div class="tool-card-icon icon-amber">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="19" y1="5" x2="5" y2="19"/>
+                <circle cx="6.5" cy="6.5" r="2.5"/>
+                <circle cx="17.5" cy="17.5" r="2.5"/>
+              </svg>
+            </div>
+            <span class="badge badge-secondary">Finance & Math</span>
+          </div>
+          <h2 class="tool-card-title">Percentage Calculator</h2>
+          <p class="tool-card-description">
+            Calculate percentage of a number, percentage change, increases, decreases, and fractions. Clear step-by-step mathematical formulas provided.
+          </p>
+          <div class="tool-card-footer">
+            <a href="percentage-calculator.html" class="btn btn-outline btn-sm" style="width: 100%;">
+              <span>Launch Calculator</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- 4. JSON Formatter -->
+        <article class="tool-card" data-category="developer">
+          <div class="tool-card-header">
+            <div class="tool-card-icon icon-purple">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="16 18 22 12 16 6"/>
+                <polyline points="8 6 2 12 8 18"/>
+              </svg>
+            </div>
+            <span class="badge badge-primary">Developer Tool</span>
+          </div>
+          <h2 class="tool-card-title">JSON Formatter & Validator</h2>
+          <p class="tool-card-description">
+            Beautify, format, validate, and minify JSON data. Highlights syntax errors, supports configurable 2/4 space indentation, and exports to file.
+          </p>
+          <div class="tool-card-footer">
+            <a href="json-formatter.html" class="btn btn-outline btn-sm" style="width: 100%;">
+              <span>Launch JSON Tool</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- 5. QR Code Generator -->
+        <article class="tool-card" data-category="utility">
+          <div class="tool-card-header">
+            <div class="tool-card-icon icon-teal">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7"/>
+                <rect x="14" y="3" width="7" height="7"/>
+                <rect x="14" y="14" width="7" height="7"/>
+                <rect x="3" y="14" width="7" height="7"/>
+              </svg>
+            </div>
+            <span class="badge badge-success">Utilities</span>
+          </div>
+          <h2 class="tool-card-title">QR Code Generator</h2>
+          <p class="tool-card-description">
+            Create high-resolution QR codes for websites, WiFi networks, emails, and plain text. Custom colors, size settings, and direct PNG download.
+          </p>
+          <div class="tool-card-footer">
+            <a href="qr-generator.html" class="btn btn-outline btn-sm" style="width: 100%;">
+              <span>Launch QR Generator</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Empty state -->
+      <div id="tools-empty-state" class="tools-empty-state">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          <line x1="8" y1="11" x2="14" y2="11"/>
+        </svg>
+        <h3>No matching tools found</h3>
+        <p>We could not find any tools matching <span id="empty-query-text">your search</span>.</p>
+        <button type="button" id="reset-filters-btn" class="btn btn-secondary btn-sm">Clear Search & View All</button>
+      </div>
+
+      <!-- Designated AdSlot -->
+      <div class="ad-slot-container">
+        <div class="ad-slot-placeholder">
+          <span class="ad-slot-label">Advertisement</span>
+          <span>Responsive Display Ad Slot</span>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Shared Footer -->
+  <footer id="site-footer" class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-brand-logo">
+            <div class="brand-icon-box" style="width:34px; height:34px;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+              </svg>
+            </div>
+            <span>OmniTools</span>
+          </a>
+          <p class="footer-desc">
+            Free, fast, and privacy-first online tools built entirely for browser execution.
+          </p>
+        </div>
+        <div>
+          <h4 class="footer-heading">Tools</h4>
+          <ul class="footer-links">
+            <li><a href="word-counter.html">Word Counter</a></li>
+            <li><a href="image-resizer.html">Image Resizer</a></li>
+            <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
+            <li><a href="json-formatter.html">JSON Formatter</a></li>
+            <li><a href="qr-generator.html">QR Code Generator</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="sitemap.html">HTML Sitemap</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Legal</h4>
+          <ul class="footer-links">
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms and Conditions</a></li>
+            <li><a href="disclaimer.html">Disclaimer</a></li>
+            <li><a href="cookie-policy.html">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="current-year">2026</span> OmniTools. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="privacy-policy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="sitemap.html">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <aside id="cookie-banner" class="cookie-banner" aria-label="Cookie Consent Banner">
+    <div class="container cookie-content">
+      <div class="cookie-text">
+        We use essential cookies for theme settings and site preferences. Learn more in our <a href="cookie-policy.html">Cookie Policy</a>.
+      </div>
+      <div class="cookie-actions">
+        <button type="button" id="cookie-accept-essential" class="btn btn-secondary btn-sm">Essential Only</button>
+        <button type="button" id="cookie-accept-all" class="btn btn-primary btn-sm">Accept All</button>
+      </div>
+    </div>
+  </aside>
+
+  <button type="button" class="back-to-top" aria-label="Scroll to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
+
+  <script src="js/theme.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

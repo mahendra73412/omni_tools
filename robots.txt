@@ -1,0 +1,8 @@
+# robots.txt for OmniTools
+# Allow search engine crawlers to discover all pages and assets
+
+User-agent: *
+Allow: /
+
+# Sitemap Location
+Sitemap: https://example.com/sitemap.xml

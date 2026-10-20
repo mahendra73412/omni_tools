@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Code Generator - Free High-Resolution Offline QR Creator</title>
+  <meta name="description" content="Generate custom QR codes from URLs, plain text, WiFi credentials, and emails. Client-side browser rendering, customizable colors, high error correction, and instant PNG download.">
+  <link rel="canonical" href="https://example.com/qr-generator.html">
+
+  <meta property="og:title" content="QR Code Generator - Free High-Resolution QR Creator">
+  <meta property="og:description" content="Create custom QR codes offline in your browser. No external API calls, private and instant.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/qr-generator.html">
+
+  <script>
+    (function() {
+      var saved = localStorage.getItem('omnitools_theme');
+      var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && dark)) {
+        document.documentElement.classList.add('dark-theme');
+      }
+    })();
+  </script>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Shared Header -->
+  <header id="site-header" class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-logo" aria-label="OmniTools Homepage">
+        <div class="brand-icon-box">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+          </svg>
+        </div>
+        <span>OmniTools</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="tools.html" class="nav-link active">All Tools</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="theme-toggle-btn" aria-label="Toggle dark/light mode" title="Toggle theme">
+          <svg class="theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <svg class="theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+        </button>
+
+        <button type="button" class="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-nav-drawer">
+      <ul class="mobile-nav-links">
+        <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+        <li><a href="tools.html" class="mobile-nav-link active">All Tools</a></li>
+        <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+        <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <div class="tool-page-header">
+    <div class="container tool-header-content">
+      <div class="tool-header-info">
+        <span class="section-tag">Utility Tool</span>
+        <h1>Custom QR Code Generator</h1>
+        <p>Create clean, high-resolution QR codes from links, WiFi access, or text. Fully rendered in your browser without external APIs.</p>
+      </div>
+      <div class="tool-privacy-pill">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        <span>Zero External API Calls · Offline Engine</span>
+      </div>
+    </div>
+  </div>
+
+  <main class="site-main">
+    <div class="container">
+
+      <!-- Main Workspace -->
+      <div class="tool-workspace">
+
+        <!-- Type Preset Buttons -->
+        <div style="margin-bottom: 1.5rem;">
+          <label class="form-label">Template / Content Type</label>
+          <div class="action-group">
+            <button type="button" class="btn btn-secondary btn-sm qr-type-btn active" data-type="url">Website URL</button>
+            <button type="button" class="btn btn-secondary btn-sm qr-type-btn" data-type="wifi">WiFi Network</button>
+            <button type="button" class="btn btn-secondary btn-sm qr-type-btn" data-type="email">Email Address</button>
+            <button type="button" class="btn btn-secondary btn-sm qr-type-btn" data-type="phone">Phone Number</button>
+            <button type="button" class="btn btn-secondary btn-sm qr-type-btn" data-type="text">Plain Text</button>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2.5rem; align-items: start;">
+
+          <!-- Left Column: Input and Styling Controls -->
+          <div>
+            <div class="form-group">
+              <label for="qr-input" class="form-label">QR Code Content / Payload</label>
+              <textarea id="qr-input" class="tool-textarea" style="min-height: 120px;" placeholder="Enter website link, text, or data..." aria-label="Content to encode into QR code">https://example.com</textarea>
+            </div>
+
+            <!-- Customization Controls -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="qr-size" class="form-label">Resolution / Size</label>
+                <select id="qr-size" class="form-control">
+                  <option value="128">128 × 128 px (Compact)</option>
+                  <option value="256" selected>256 × 256 px (Standard)</option>
+                  <option value="384">384 × 384 px (High Quality)</option>
+                  <option value="512">512 × 512 px (Print Ultra-HD)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="qr-ec-level" class="form-label">Error Correction (ECC)</label>
+                <select id="qr-ec-level" class="form-control">
+                  <option value="L">Low (~7% recovery)</option>
+                  <option value="M">Medium (~15% recovery)</option>
+                  <option value="Q">Quartile (~25% recovery)</option>
+                  <option value="H" selected>High (~30% recovery - Recommended)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="qr-color-dark" class="form-label">Foreground Color</label>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                  <input type="color" id="qr-color-dark" value="#000000" style="width: 48px; height: 38px; padding: 2px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); cursor: pointer;">
+                  <span style="font-size: 0.875rem; color: var(--text-muted);">QR Code pattern</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="qr-color-light" class="form-label">Background Color</label>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                  <input type="color" id="qr-color-light" value="#ffffff" style="width: 48px; height: 38px; padding: 2px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); cursor: pointer;">
+                  <span style="font-size: 0.875rem; color: var(--text-muted);">Quiet zone & background</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="action-group" style="margin-top: 1.25rem;">
+              <button type="button" id="qr-btn-generate" class="btn btn-primary btn-sm">Refresh QR Code</button>
+              <button type="button" id="qr-btn-clear" class="btn btn-secondary btn-sm">Clear Text</button>
+            </div>
+          </div>
+
+          <!-- Right Column: Live QR Preview & Export -->
+          <div style="text-align: center;">
+            <label class="form-label" style="text-align: left;">Live Preview</label>
+            <div style="background-color: var(--bg-primary); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 2rem; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 320px; box-shadow: var(--shadow-sm);">
+              <div id="qr-canvas-container" style="display: inline-block; padding: 0.5rem; background: #ffffff; border-radius: var(--radius-md); box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+                <!-- Dynamic QR Canvas will be injected here -->
+              </div>
+              <div id="qr-status-msg" style="margin-top: 1rem; font-size: 0.8125rem; color: var(--text-muted);">
+                Ready to download
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.5rem;">
+              <button type="button" id="qr-btn-download" class="btn btn-primary">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="7 10 12 15 17 10"/>
+                  <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                <span>Download as PNG Image</span>
+              </button>
+              <button type="button" id="qr-btn-copy" class="btn btn-secondary btn-sm">
+                <span>Copy Image to Clipboard</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Designated AdSlot -->
+      <div class="ad-slot-container">
+        <div class="ad-slot-placeholder">
+          <span class="ad-slot-label">Advertisement</span>
+          <span>Sponsored Banner Placement</span>
+        </div>
+      </div>
+
+      <!-- Informational Guide & Best Practices -->
+      <article class="tool-guide-section">
+        <div class="guide-card">
+          <h2>Understanding QR Codes and Best Practices</h2>
+          <p>
+            Quick Response (QR) codes are two-dimensional matrix barcodes originally invented in 1994 by the automotive firm Denso Wave. Capable of encoding hundreds of times more data than traditional barcodes, QR codes have become an indispensable bridge connecting print materials to digital content.
+          </p>
+
+          <h3>Reed-Solomon Error Correction Explained</h3>
+          <p>
+            A key advantage of QR codes is built-in mathematical error correction using Reed-Solomon algorithms. Even if a QR code is partially obscured, stained, scratched, or folded, smartphones can still decode the underlying data accurately.
+          </p>
+          <ul>
+            <li><strong>Level L (Low):</strong> Restores approximately 7% of missing or corrupted codewords. Best for dense alphanumeric payloads where code size must remain as small as possible.</li>
+            <li><strong>Level M (Medium):</strong> Recovers roughly 15% of damaged bytes. The standard default for clean digital screen displays.</li>
+            <li><strong>Level Q (Quartile):</strong> Restores approximately 25% of corrupted data.</li>
+            <li><strong>Level H (High - Recommended):</strong> Restores up to 30% of lost data. Ideal for printed flyers, restaurant menus, outdoor billboards, and badges where physical wear or artistic overlays might occur.</li>
+          </ul>
+
+          <h3>Important Scannability Guidelines</h3>
+          <ul>
+            <li><strong>Maintain Contrast:</strong> Always keep the foreground pattern dark and the background light. Light patterns on dark backgrounds (inverted QR codes) fail to scan on many legacy barcode readers.</li>
+            <li><strong>Preserve the Quiet Zone:</strong> QR code scanners require an unobstructed margin (known as the quiet zone) surrounding the code to locate the bounding alignment patterns.</li>
+            <li><strong>Test at Actual Print Size:</strong> Before mass-printing flyers, brochures, or posters, perform real-world scan tests using multiple smartphone camera models from varying distances.</li>
+          </ul>
+
+          <h3>Frequently Asked Questions</h3>
+          <div class="faq-list" style="margin-top: 1.5rem;">
+            <div class="faq-item">
+              <button type="button" class="faq-question" aria-expanded="false">
+                <span>Do these generated QR codes ever expire?</span>
+                <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">
+                  No. These are static, direct-payload QR codes. The encoded text or destination URL is embedded directly into the matrix pixels. As long as your destination link is active, your QR code will work permanently.
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-question" aria-expanded="false">
+                <span>Can I format a QR code for a home WiFi connection?</span>
+                <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">
+                  Yes! Click the <strong>WiFi Network</strong> template button above. When guests scan the resulting QR code with their mobile cameras, their device will automatically offer to connect without typing the password.
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- Shared Footer -->
+  <footer id="site-footer" class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-brand-logo">
+            <div class="brand-icon-box" style="width:34px; height:34px;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+              </svg>
+            </div>
+            <span>OmniTools</span>
+          </a>
+          <p class="footer-desc">
+            Free, fast, and privacy-first online tools built entirely for browser execution.
+          </p>
+        </div>
+        <div>
+          <h4 class="footer-heading">Tools</h4>
+          <ul class="footer-links">
+            <li><a href="word-counter.html">Word Counter</a></li>
+            <li><a href="image-resizer.html">Image Resizer</a></li>
+            <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
+            <li><a href="json-formatter.html">JSON Formatter</a></li>
+            <li><a href="qr-generator.html">QR Code Generator</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="sitemap.html">HTML Sitemap</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Legal</h4>
+          <ul class="footer-links">
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms and Conditions</a></li>
+            <li><a href="disclaimer.html">Disclaimer</a></li>
+            <li><a href="cookie-policy.html">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="current-year">2026</span> OmniTools. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="privacy-policy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="sitemap.html">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <aside id="cookie-banner" class="cookie-banner" aria-label="Cookie Consent Banner">
+    <div class="container cookie-content">
+      <div class="cookie-text">
+        We use essential cookies for theme settings and site preferences. Learn more in our <a href="cookie-policy.html">Cookie Policy</a>.
+      </div>
+      <div class="cookie-actions">
+        <button type="button" id="cookie-accept-essential" class="btn btn-secondary btn-sm">Essential Only</button>
+        <button type="button" id="cookie-accept-all" class="btn btn-primary btn-sm">Accept All</button>
+      </div>
+    </div>
+  </aside>
+
+  <button type="button" class="back-to-top" aria-label="Scroll to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
+
+  <!-- Scripts -->
+  <script src="js/vendor/qrcode.min.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/qr-generator.js"></script>
+</body>
+</html>

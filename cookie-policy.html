@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie Policy - OmniTools Cookie & Tracking Transparency</title>
+  <meta name="description" content="Learn about the cookies and local storage technologies used on OmniTools, including essential preference cookies and third-party advertising cookies.">
+  <link rel="canonical" href="https://example.com/cookie-policy.html">
+
+  <meta property="og:title" content="Cookie Policy - OmniTools">
+  <meta property="og:description" content="Transparent explanation of cookie usage, storage preferences, and advertising disclosures.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/cookie-policy.html">
+
+  <script>
+    (function() {
+      var saved = localStorage.getItem('omnitools_theme');
+      var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && dark)) {
+        document.documentElement.classList.add('dark-theme');
+      }
+    })();
+  </script>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Shared Header -->
+  <header id="site-header" class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-logo" aria-label="OmniTools Homepage">
+        <div class="brand-icon-box">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+          </svg>
+        </div>
+        <span>OmniTools</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="tools.html" class="nav-link">All Tools</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="theme-toggle-btn" aria-label="Toggle dark/light mode" title="Toggle theme">
+          <svg class="theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <svg class="theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+        </button>
+
+        <button type="button" class="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-nav-drawer">
+      <ul class="mobile-nav-links">
+        <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+        <li><a href="tools.html" class="mobile-nav-link">All Tools</a></li>
+        <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+        <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="site-main" style="padding: 3.5rem 0;">
+    <div class="container-narrow">
+      <div class="legal-content-wrap">
+        <span class="section-tag">Transparency & Compliance</span>
+        <h1>Cookie Policy</h1>
+        <div class="legal-meta">
+          Effective Date: October 19, 2026 · Last Updated: October 19, 2026
+        </div>
+
+        <p>
+          This Cookie Policy explains what cookies and web storage technologies are, how <strong>OmniTools</strong> ("we", "us", or "our") uses them on <code>https://example.com</code>, and your choices regarding their management.
+        </p>
+
+        <h2>1. What are Cookies and Web Storage?</h2>
+        <p>
+          Cookies are small text files that are stored on your computer or mobile device by a web server when you visit a website. Web Storage (including HTML5 <code>localStorage</code>) is a modern browser mechanism that allows web applications to store key-value data locally within the user's browser with greater capacity and security than traditional HTTP cookies.
+        </p>
+
+        <h2>2. How We Use Cookies & Local Storage</h2>
+        <p>
+          OmniTools operates with a strict data-minimization philosophy. We do not use cookies to collect personal identity details or track your keystrokes. Below is a complete breakdown of the storage technologies utilized on our website:
+        </p>
+
+        <h3>A. Strictly Necessary & Functional Local Storage</h3>
+        <p>
+          These storage items are essential for the website to function properly and provide you with a customized user experience:
+        </p>
+        <ul>
+          <li>
+            <strong><code>omnitools_theme</code>:</strong> Stores your chosen interface theme (either <code>'dark'</code> or <code>'light'</code>). This allows your display preference to persist when navigating between different tool pages and on subsequent visits, preventing an unpleasant visual flash of unstyled content.
+          </li>
+          <li>
+            <strong><code>omnitools_cookie_consent</code>:</strong> Records whether you have accepted or customized our cookie consent banner (<code>'all'</code> or <code>'essential'</code>) so the banner is not redundantly displayed on every page load.
+          </li>
+        </ul>
+
+        <h3>B. Third-Party Advertising Cookies (Google AdSense)</h3>
+        <p>
+          To maintain OmniTools as a 100% free resource for students, writers, and developers, we may partner with automated third-party ad networks, notably <strong>Google AdSense</strong>.
+        </p>
+        <p>
+          When enabled, Google uses cookies (including the DoubleClick DART cookie) to serve ads to users based on their visits to OmniTools and other sites on the web. These cookies collect non-personally identifiable technical identifiers such as browser type, approximate geolocation, and device category to:
+        </p>
+        <ul>
+          <li>Measure advertising impressions and performance.</li>
+          <li>Prevent the same ad from showing repetitively to the same user.</li>
+          <li>Deliver relevant contextual or personalized ads where consented.</li>
+        </ul>
+        <p>
+          You may opt out of personalized advertising by visiting Google's official Ad Settings page: <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">https://www.google.com/settings/ads</a> or through the Network Advertising Initiative opt-out portal at <a href="http://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">http://www.aboutads.info/choices/</a>.
+        </p>
+
+        <h2>3. How to Manage and Disable Cookies in Your Browser</h2>
+        <p>
+          Most modern web browsers allow you to control cookie preferences, view stored data, and delete cookies at will. You can modify your browser settings to refuse cookies or alert you when cookies are being set:
+        </p>
+        <ul>
+          <li><strong>Google Chrome:</strong> Settings &gt; Privacy and security &gt; Third-party cookies.</li>
+          <li><strong>Mozilla Firefox:</strong> Settings &gt; Privacy &amp; Security &gt; Enhanced Tracking Protection.</li>
+          <li><strong>Apple Safari:</strong> Preferences &gt; Privacy &gt; Prevent cross-site tracking / Block all cookies.</li>
+          <li><strong>Microsoft Edge:</strong> Settings &gt; Cookies and site permissions &gt; Manage and delete cookies.</li>
+        </ul>
+        <p>
+          <em>Please note:</em> Disabling essential local storage will reset your light/dark theme preference to system defaults on each visit.
+        </p>
+
+        <h2>4. Updates to this Cookie Policy</h2>
+        <p>
+          We may update our Cookie Policy from time to time in order to reflect changes to the cookies we use or for other operational, legal, or regulatory reasons. Please revisit this Cookie Policy periodically to stay informed.
+        </p>
+
+        <h2>5. Questions and Contact</h2>
+        <p>
+          If you have any questions regarding our use of cookies or local storage technologies, please email us at <a href="mailto:support@example.com">support@example.com</a> or visit our <a href="contact.html">Contact Us page</a>.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Shared Footer -->
+  <footer id="site-footer" class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-brand-logo">
+            <div class="brand-icon-box" style="width:34px; height:34px;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+              </svg>
+            </div>
+            <span>OmniTools</span>
+          </a>
+          <p class="footer-desc">
+            Free, fast, and privacy-first online tools built entirely for browser execution.
+          </p>
+        </div>
+        <div>
+          <h4 class="footer-heading">Tools</h4>
+          <ul class="footer-links">
+            <li><a href="word-counter.html">Word Counter</a></li>
+            <li><a href="image-resizer.html">Image Resizer</a></li>
+            <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
+            <li><a href="json-formatter.html">JSON Formatter</a></li>
+            <li><a href="qr-generator.html">QR Code Generator</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="sitemap.html">HTML Sitemap</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Legal</h4>
+          <ul class="footer-links">
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms and Conditions</a></li>
+            <li><a href="disclaimer.html">Disclaimer</a></li>
+            <li><a href="cookie-policy.html">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="current-year">2026</span> OmniTools. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="privacy-policy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="sitemap.html">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <aside id="cookie-banner" class="cookie-banner" aria-label="Cookie Consent Banner">
+    <div class="container cookie-content">
+      <div class="cookie-text">
+        We use essential cookies for theme settings and site preferences. Learn more in our <a href="cookie-policy.html">Cookie Policy</a>.
+      </div>
+      <div class="cookie-actions">
+        <button type="button" id="cookie-accept-essential" class="btn btn-secondary btn-sm">Essential Only</button>
+        <button type="button" id="cookie-accept-all" class="btn btn-primary btn-sm">Accept All</button>
+      </div>
+    </div>
+  </aside>
+
+  <button type="button" class="back-to-top" aria-label="Scroll to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
+
+  <script src="js/theme.js"></script>
+  <script src="js/common.js"></script>
+</body>
+</html>

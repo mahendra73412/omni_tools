@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Resizer - Free Online Photo & Image Dimension Changer</title>
+  <meta name="description" content="Resize PNG, JPG, and WebP images directly in your browser. Maintain aspect ratio, choose output formats, and process files privately using the Canvas API.">
+  <link rel="canonical" href="https://example.com/image-resizer.html">
+
+  <meta property="og:title" content="Image Resizer - Free Online Photo Dimension Tool">
+  <meta property="og:description" content="Resize images locally in your browser. No server uploads, zero quality loss, fast and private.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/image-resizer.html">
+
+  <script>
+    (function() {
+      var saved = localStorage.getItem('omnitools_theme');
+      var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && dark)) {
+        document.documentElement.classList.add('dark-theme');
+      }
+    })();
+  </script>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Shared Header -->
+  <header id="site-header" class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-logo" aria-label="OmniTools Homepage">
+        <div class="brand-icon-box">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+          </svg>
+        </div>
+        <span>OmniTools</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="tools.html" class="nav-link active">All Tools</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="theme-toggle-btn" aria-label="Toggle dark/light mode" title="Toggle theme">
+          <svg class="theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <svg class="theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+        </button>
+
+        <button type="button" class="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-nav-drawer">
+      <ul class="mobile-nav-links">
+        <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+        <li><a href="tools.html" class="mobile-nav-link active">All Tools</a></li>
+        <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+        <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <div class="tool-page-header">
+    <div class="container tool-header-content">
+      <div class="tool-header-info">
+        <span class="section-tag">Image Tool</span>
+        <h1>Client-Side Image Resizer</h1>
+        <p>Adjust image width, height, aspect ratio, and format instantly using the HTML5 Canvas API. No images are uploaded to any server.</p>
+      </div>
+      <div class="tool-privacy-pill">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        <span>100% Local Canvas API Processing</span>
+      </div>
+    </div>
+  </div>
+
+  <main class="site-main">
+    <div class="container">
+
+      <!-- Tool Workspace -->
+      <div class="tool-workspace">
+
+        <!-- Dropzone Area -->
+        <div id="ir-dropzone" class="dropzone" role="button" tabindex="0" aria-label="Upload an image to resize">
+          <div class="dropzone-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <polyline points="21 15 16 10 5 21"/>
+            </svg>
+          </div>
+          <h3>Choose an image or drag & drop here</h3>
+          <p>Supports PNG, JPEG, WebP, GIF, and SVG files. Handled 100% in your browser.</p>
+          <button type="button" class="btn btn-primary btn-sm">Select Image from Device</button>
+          <input type="file" id="ir-file-input" accept="image/*" style="display:none;" aria-label="Select image file">
+        </div>
+
+        <!-- Controls Panel (Revealed on image load) -->
+        <div id="ir-controls-panel" style="display: none;">
+          <div class="tool-action-bar">
+            <div class="action-group">
+              <span class="badge badge-success">Image Loaded</span>
+              <span style="font-size:0.875rem; color:var(--text-muted);">Adjust dimensions and output settings below:</span>
+            </div>
+            <div class="action-group">
+              <button type="button" id="ir-btn-reset" class="btn btn-secondary btn-sm">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="1 4 1 10 7 10"/>
+                  <polyline points="23 20 23 14 17 14"/>
+                  <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/>
+                </svg>
+                <span>Upload Different Image</span>
+              </button>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; margin-bottom: 2rem;">
+            <!-- Left Column: Controls -->
+            <div>
+              <!-- Dimension Inputs -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="ir-width" class="form-label">Width (pixels)</label>
+                  <input type="number" id="ir-width" class="form-control" min="1" step="1" aria-label="Target width in pixels">
+                </div>
+                <div class="form-group">
+                  <label for="ir-height" class="form-label">Height (pixels)</label>
+                  <input type="number" id="ir-height" class="form-control" min="1" step="1" aria-label="Target height in pixels">
+                </div>
+              </div>
+
+              <!-- Maintain Aspect Ratio Toggle -->
+              <div class="form-group">
+                <label class="toggle-switch-label">
+                  <span class="toggle-switch">
+                    <input type="checkbox" id="ir-lock-aspect" checked>
+                    <span class="toggle-slider"></span>
+                  </span>
+                  <span>Maintain original aspect ratio</span>
+                </label>
+              </div>
+
+              <!-- Presets -->
+              <div class="form-group">
+                <label class="form-label">Quick Scale Presets</label>
+                <div class="action-group">
+                  <button type="button" class="btn btn-secondary btn-sm ir-preset-btn" data-preset="25">25%</button>
+                  <button type="button" class="btn btn-secondary btn-sm ir-preset-btn" data-preset="50">50%</button>
+                  <button type="button" class="btn btn-secondary btn-sm ir-preset-btn" data-preset="75">75%</button>
+                  <button type="button" class="btn btn-secondary btn-sm ir-preset-btn" data-preset="100">Original (100%)</button>
+                  <button type="button" class="btn btn-secondary btn-sm ir-preset-btn" data-preset="1080p">1920×1080</button>
+                  <button type="button" class="btn btn-secondary btn-sm ir-preset-btn" data-preset="square">Square 1:1</button>
+                </div>
+              </div>
+
+              <!-- Format & Quality -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="ir-format" class="form-label">Output Format</label>
+                  <select id="ir-format" class="form-control" aria-label="Output format selection">
+                    <option value="image/png">PNG (Lossless)</option>
+                    <option value="image/jpeg">JPEG (Compressed)</option>
+                    <option value="image/webp" selected>WebP (Modern, Small Size)</option>
+                  </select>
+                </div>
+                <div class="form-group" id="ir-quality-group">
+                  <label for="ir-quality" class="form-label">Quality Level</label>
+                  <div class="range-slider-wrap">
+                    <input type="range" id="ir-quality" class="range-slider" min="10" max="100" value="90">
+                    <span id="ir-quality-val" class="range-val">90%</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Comparison Stats -->
+              <div class="stats-grid" style="margin-top: 1.5rem;">
+                <div class="stat-card">
+                  <div id="ir-orig-dim" class="stat-value" style="font-size:1.15rem;">0 x 0</div>
+                  <div class="stat-label">Original Dimensions</div>
+                </div>
+                <div class="stat-card">
+                  <div id="ir-orig-size" class="stat-value" style="font-size:1.15rem;">0 KB</div>
+                  <div class="stat-label">Original Size</div>
+                </div>
+                <div class="stat-card">
+                  <div id="ir-new-dim" class="stat-value" style="font-size:1.15rem; color:var(--color-success);">0 x 0</div>
+                  <div class="stat-label">Target Dimensions</div>
+                </div>
+                <div class="stat-card">
+                  <div id="ir-est-size" class="stat-value" style="font-size:1.15rem; color:var(--color-success);">Calculating...</div>
+                  <div class="stat-label">Estimated Output Size</div>
+                </div>
+              </div>
+
+              <!-- Download Button -->
+              <div style="margin-top: 1.75rem;">
+                <button type="button" id="ir-btn-download" class="btn btn-primary btn-lg" style="width: 100%;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                  </svg>
+                  <span>Download Resized Image</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Right Column: Visual Preview -->
+            <div>
+              <label class="form-label">Live Preview</label>
+              <div style="background-color: var(--bg-primary); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem; text-align: center; max-height: 520px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                <img id="ir-preview-img" src="" alt="Resized image preview" style="max-width: 100%; max-height: 480px; object-fit: contain; border-radius: var(--radius-sm); box-shadow: var(--shadow-sm);">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Designated AdSlot -->
+      <div class="ad-slot-container">
+        <div class="ad-slot-placeholder">
+          <span class="ad-slot-label">Advertisement</span>
+          <span>Responsive Display Placement</span>
+        </div>
+      </div>
+
+      <!-- Informational Guide & Tutorial -->
+      <article class="tool-guide-section">
+        <div class="guide-card">
+          <h2>How to Resize Images in Your Browser Safely</h2>
+          <p>
+            When uploading photos to websites, forums, email attachments, or social platforms, image files are frequently too large or have incompatible aspect ratios. The OmniTools Image Resizer enables you to scale pictures up or down with pixel-level precision.
+          </p>
+
+          <h3>Why Browser-Based Image Resizing is Safer</h3>
+          <p>
+            Traditional online image resizers require uploading your sensitive photographs to an external server, where they may be stored, analyzed, or cached indefinitely. In contrast, our tool processes images entirely inside your computer or smartphone using the native HTML5 Canvas API. The image data is drawn into local browser memory, scaled using high-quality bicubic interpolation algorithms, and encoded directly to your desired format.
+          </p>
+
+          <h3>Choosing the Right Image Format</h3>
+          <ul>
+            <li><strong>WebP (Recommended):</strong> Developed by Google, WebP provides superior lossless and lossy compression for images on the web. It is roughly 25-34% smaller than comparable JPEGs without visible loss in quality.</li>
+            <li><strong>PNG:</strong> Lossless compression standard ideal for illustrations, screenshots, logos, and images requiring sharp contrast and transparent backgrounds.</li>
+            <li><strong>JPEG:</strong> The universal format for natural photography and real-world scenes. Balances file size and color fidelity through adjustable compression quality.</li>
+          </ul>
+
+          <h3>Tips for Maintaining Quality</h3>
+          <p>
+            Keep the <strong>Maintain original aspect ratio</strong> toggle enabled unless you explicitly need to crop or distort the image into specific non-proportional rectangular bounds. When reducing image dimensions (downscaling), high visual clarity is preserved automatically.
+          </p>
+
+          <h3>Frequently Asked Questions</h3>
+          <div class="faq-list" style="margin-top: 1.5rem;">
+            <div class="faq-item">
+              <button type="button" class="faq-question" aria-expanded="false">
+                <span>Can I resize large photographs from digital cameras or smartphones?</span>
+                <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">
+                  Yes. Modern web browsers handle images of 20 to 50 megapixels with ease. Since processing happens locally using your device GPU and CPU, high-resolution photos resize in seconds.
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-question" aria-expanded="false">
+                <span>Will this tool add a watermark to my pictures?</span>
+                <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">
+                  Never. We do not apply any watermarks, branding, or modifications to your output images.
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- Shared Footer -->
+  <footer id="site-footer" class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-brand-logo">
+            <div class="brand-icon-box" style="width:34px; height:34px;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+              </svg>
+            </div>
+            <span>OmniTools</span>
+          </a>
+          <p class="footer-desc">
+            Free, fast, and privacy-first online tools built entirely for browser execution.
+          </p>
+        </div>
+        <div>
+          <h4 class="footer-heading">Tools</h4>
+          <ul class="footer-links">
+            <li><a href="word-counter.html">Word Counter</a></li>
+            <li><a href="image-resizer.html">Image Resizer</a></li>
+            <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
+            <li><a href="json-formatter.html">JSON Formatter</a></li>
+            <li><a href="qr-generator.html">QR Code Generator</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="sitemap.html">HTML Sitemap</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Legal</h4>
+          <ul class="footer-links">
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms and Conditions</a></li>
+            <li><a href="disclaimer.html">Disclaimer</a></li>
+            <li><a href="cookie-policy.html">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="current-year">2026</span> OmniTools. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="privacy-policy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="sitemap.html">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <aside id="cookie-banner" class="cookie-banner" aria-label="Cookie Consent Banner">
+    <div class="container cookie-content">
+      <div class="cookie-text">
+        We use essential cookies for theme settings and site preferences. Learn more in our <a href="cookie-policy.html">Cookie Policy</a>.
+      </div>
+      <div class="cookie-actions">
+        <button type="button" id="cookie-accept-essential" class="btn btn-secondary btn-sm">Essential Only</button>
+        <button type="button" id="cookie-accept-all" class="btn btn-primary btn-sm">Accept All</button>
+      </div>
+    </div>
+  </aside>
+
+  <button type="button" class="back-to-top" aria-label="Scroll to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
+
+  <script src="js/theme.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/image-resizer.js"></script>
+</body>
+</html>

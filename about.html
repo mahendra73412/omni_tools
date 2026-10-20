@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - OmniTools Mission & Privacy Philosophy</title>
+  <meta name="description" content="Learn about OmniTools, our mission to provide high-performance, private, client-side browser utilities without paywalls, accounts, or data harvesting.">
+  <link rel="canonical" href="https://example.com/about.html">
+
+  <meta property="og:title" content="About OmniTools - Free, Private Browser Utilities">
+  <meta property="og:description" content="Discover our mission, local-first browser architecture, and dedication to privacy and speed.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/about.html">
+
+  <script>
+    (function() {
+      var saved = localStorage.getItem('omnitools_theme');
+      var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && dark)) {
+        document.documentElement.classList.add('dark-theme');
+      }
+    })();
+  </script>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Shared Header -->
+  <header id="site-header" class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-logo" aria-label="OmniTools Homepage">
+        <div class="brand-icon-box">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+          </svg>
+        </div>
+        <span>OmniTools</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="tools.html" class="nav-link">All Tools</a></li>
+          <li><a href="about.html" class="nav-link active">About Us</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="theme-toggle-btn" aria-label="Toggle dark/light mode" title="Toggle theme">
+          <svg class="theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <svg class="theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+        </button>
+
+        <button type="button" class="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-nav-drawer">
+      <ul class="mobile-nav-links">
+        <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+        <li><a href="tools.html" class="mobile-nav-link">All Tools</a></li>
+        <li><a href="about.html" class="mobile-nav-link active">About Us</a></li>
+        <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="site-main" style="padding: 3.5rem 0;">
+    <div class="container-narrow">
+      <div class="legal-content-wrap">
+        <span class="section-tag">Our Mission</span>
+        <h1>About OmniTools</h1>
+        <div class="legal-meta">
+          Published: October 2026 · Estimated reading time: 4 minutes · Written by the OmniTools Engineering Team
+        </div>
+
+        <p>
+          Welcome to <strong>OmniTools</strong>. We believe that everyday digital utilities—counting words in an article, resizing a photograph for a profile, calculating a percentage discount, formatting a JSON payload, or creating a QR code—should be instantaneous, free, and fundamentally respectful of your privacy.
+        </p>
+
+        <h2>The Problem with Traditional Online Tools</h2>
+        <p>
+          Over the past decade, simple utility websites have become increasingly cluttered, slow, and invasive. Users attempting to perform quick tasks are often confronted with mandatory user account registrations, intrusive full-screen popups, aggressive tracking cookies, and paywalls.
+        </p>
+        <p>
+          Worse still, many websites upload your private documents, passwords, API payloads, or family photos to remote backend servers. Once uploaded, users have no genuine insight into how long their data is retained, whether it is logged, or if it is analyzed for advertising profiles.
+        </p>
+
+        <h2>Our Solution: Pure Client-Side Architecture</h2>
+        <p>
+          OmniTools was engineered from the ground up on a simple architectural principle: <strong>Client-First Execution</strong>.
+        </p>
+        <p>
+          Modern web browsers are extraordinarily capable computing platforms. Equipped with optimized JavaScript JIT compilers, the HTML5 Canvas API, and Web Cryptography, modern client devices can perform complex operations in milliseconds without ever transmitting user data across the public internet.
+        </p>
+        <ul>
+          <li><strong>Zero Data Uploads:</strong> When you resize an image, the pixels are rendered directly onto a local browser canvas element. When you format JSON, it is parsed by your device’s JavaScript engine.</li>
+          <li><strong>No Mandatory Accounts:</strong> We do not ask for your email address, phone number, or social media log-ins. Every tool is immediately accessible with zero friction.</li>
+          <li><strong>Clean, Honest Design:</strong> We utilize a minimalist, typography-led design system with high-contrast accessibility and native dark mode support.</li>
+          <li><strong>Blazing Fast:</strong> By eliminating network latency and server roundtrips, our tools process tasks in microseconds.</li>
+        </ul>
+
+        <h2>Technology Stack</h2>
+        <p>
+          We pride ourselves on lightweight, beginner-maintainable software architecture. OmniTools is built purely with:
+        </p>
+        <ul>
+          <li><strong>Semantic HTML5:</strong> Ensuring accessible navigation, screen reader compatibility, and search engine discoverability.</li>
+          <li><strong>Modern CSS3:</strong> Built using custom CSS variables (design tokens), flexbox, grid, and fluid typography without heavy CSS frameworks.</li>
+          <li><strong>Vanilla JavaScript (ES6+):</strong> Zero bulky JavaScript frameworks. Fast, dependable execution with minimal memory footprints.</li>
+          <li><strong>Standards-Compliant Canvas & QR Engine:</strong> High-resolution vector and raster rendering directly on client hardware.</li>
+        </ul>
+
+        <h2>Support & Contact</h2>
+        <p>
+          We are committed to maintaining OmniTools as a dependable resource for students, writers, developers, and professionals worldwide. If you have an idea for a new browser-based tool, or if you encounter an issue on any device, please reach out to us through our <a href="contact.html">Contact Us page</a> or email us directly at <a href="mailto:support@example.com">support@example.com</a>.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Shared Footer -->
+  <footer id="site-footer" class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-brand-logo">
+            <div class="brand-icon-box" style="width:34px; height:34px;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+              </svg>
+            </div>
+            <span>OmniTools</span>
+          </a>
+          <p class="footer-desc">
+            Free, fast, and privacy-first online tools built entirely for browser execution.
+          </p>
+        </div>
+        <div>
+          <h4 class="footer-heading">Tools</h4>
+          <ul class="footer-links">
+            <li><a href="word-counter.html">Word Counter</a></li>
+            <li><a href="image-resizer.html">Image Resizer</a></li>
+            <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
+            <li><a href="json-formatter.html">JSON Formatter</a></li>
+            <li><a href="qr-generator.html">QR Code Generator</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="sitemap.html">HTML Sitemap</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Legal</h4>
+          <ul class="footer-links">
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms and Conditions</a></li>
+            <li><a href="disclaimer.html">Disclaimer</a></li>
+            <li><a href="cookie-policy.html">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="current-year">2026</span> OmniTools. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="privacy-policy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="sitemap.html">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <aside id="cookie-banner" class="cookie-banner" aria-label="Cookie Consent Banner">
+    <div class="container cookie-content">
+      <div class="cookie-text">
+        We use essential cookies for theme settings and site preferences. Learn more in our <a href="cookie-policy.html">Cookie Policy</a>.
+      </div>
+      <div class="cookie-actions">
+        <button type="button" id="cookie-accept-essential" class="btn btn-secondary btn-sm">Essential Only</button>
+        <button type="button" id="cookie-accept-all" class="btn btn-primary btn-sm">Accept All</button>
+      </div>
+    </div>
+  </aside>
+
+  <button type="button" class="back-to-top" aria-label="Scroll to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
+
+  <script src="js/theme.js"></script>
+  <script src="js/common.js"></script>
+</body>
+</html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Counter - Free Online Character, Word & Sentence Count Tool</title>
+  <meta name="description" content="Accurate, instant word counter tool. Count words, characters with and without spaces, sentences, paragraphs, and reading time directly in your browser.">
+  <link rel="canonical" href="https://example.com/word-counter.html">
+
+  <meta property="og:title" content="Word Counter - Free Online Text Analyzer">
+  <meta property="og:description" content="Count words, characters, sentences, paragraphs, and reading time in real-time. No sign-up required.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/word-counter.html">
+
+  <script>
+    (function() {
+      var saved = localStorage.getItem('omnitools_theme');
+      var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && dark)) {
+        document.documentElement.classList.add('dark-theme');
+      }
+    })();
+  </script>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Shared Header -->
+  <header id="site-header" class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-logo" aria-label="OmniTools Homepage">
+        <div class="brand-icon-box">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+          </svg>
+        </div>
+        <span>OmniTools</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="tools.html" class="nav-link active">All Tools</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="theme-toggle-btn" aria-label="Toggle dark/light mode" title="Toggle theme">
+          <svg class="theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <svg class="theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+        </button>
+
+        <button type="button" class="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-nav-drawer">
+      <ul class="mobile-nav-links">
+        <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+        <li><a href="tools.html" class="mobile-nav-link active">All Tools</a></li>
+        <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+        <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <div class="tool-page-header">
+    <div class="container tool-header-content">
+      <div class="tool-header-info">
+        <span class="section-tag">Text Tool</span>
+        <h1>Word & Character Counter</h1>
+        <p>Analyze your writing in real time. Count words, characters with and without spaces, sentences, paragraphs, and reading time.</p>
+      </div>
+      <div class="tool-privacy-pill">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        <span>Private: Text Never Leaves Your Device</span>
+      </div>
+    </div>
+  </div>
+
+  <main class="site-main">
+    <div class="container">
+
+      <!-- Tool Workspace -->
+      <div class="tool-workspace">
+
+        <!-- Live Statistics Counter Cards -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div id="stat-words" class="stat-value">0</div>
+            <div class="stat-label">Words</div>
+          </div>
+          <div class="stat-card">
+            <div id="stat-chars-spaces" class="stat-value">0</div>
+            <div class="stat-label">Chars (Spaces)</div>
+          </div>
+          <div class="stat-card">
+            <div id="stat-chars-no-spaces" class="stat-value">0</div>
+            <div class="stat-label">Chars (No Space)</div>
+          </div>
+          <div class="stat-card">
+            <div id="stat-sentences" class="stat-value">0</div>
+            <div class="stat-label">Sentences</div>
+          </div>
+          <div class="stat-card">
+            <div id="stat-paragraphs" class="stat-value">0</div>
+            <div class="stat-label">Paragraphs</div>
+          </div>
+          <div class="stat-card">
+            <div id="stat-reading-time" class="stat-value" style="font-size:1.35rem;">0 min</div>
+            <div class="stat-label">Reading Time</div>
+          </div>
+          <div class="stat-card">
+            <div id="stat-speaking-time" class="stat-value" style="font-size:1.35rem;">0 min</div>
+            <div class="stat-label">Speaking Time</div>
+          </div>
+        </div>
+
+        <!-- Action Bar -->
+        <div class="tool-action-bar">
+          <div class="action-group">
+            <button type="button" id="wc-btn-copy" class="btn btn-primary btn-sm">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+              </svg>
+              <span>Copy Text</span>
+            </button>
+            <button type="button" id="wc-btn-clear" class="btn btn-secondary btn-sm">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="3 6 5 6 21 6"/>
+                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+              </svg>
+              <span>Clear</span>
+            </button>
+            <button type="button" id="wc-btn-paste" class="btn btn-secondary btn-sm">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+              </svg>
+              <span>Paste</span>
+            </button>
+            <button type="button" id="wc-btn-sample" class="btn btn-ghost btn-sm">Load Sample</button>
+          </div>
+
+          <!-- Quick Case Converters -->
+          <div class="action-group">
+            <button type="button" id="wc-btn-uppercase" class="btn btn-secondary btn-sm" title="Convert to UPPERCASE">UPPER</button>
+            <button type="button" id="wc-btn-lowercase" class="btn btn-secondary btn-sm" title="Convert to lowercase">lower</button>
+            <button type="button" id="wc-btn-titlecase" class="btn btn-secondary btn-sm" title="Convert to Title Case">Title</button>
+            <button type="button" id="wc-btn-sentencecase" class="btn btn-secondary btn-sm" title="Convert to Sentence case">Sentence</button>
+            <button type="button" id="wc-btn-clean-spaces" class="btn btn-secondary btn-sm" title="Remove excessive spaces and blank lines">Clean Spaces</button>
+          </div>
+        </div>
+
+        <!-- Main Input Textarea -->
+        <div class="form-group" style="margin-bottom:0;">
+          <textarea id="wc-input" class="tool-textarea" placeholder="Type or paste your text here to begin instant real-time analysis..." aria-label="Text for word count analysis"></textarea>
+        </div>
+
+      </div>
+
+      <!-- Designated AdSlot -->
+      <div class="ad-slot-container">
+        <div class="ad-slot-placeholder">
+          <span class="ad-slot-label">Advertisement</span>
+          <span>Sponsored Banner Placement</span>
+        </div>
+      </div>
+
+      <!-- Detailed Guide & Informational Content (AdSense & SEO Optimized) -->
+      <article class="tool-guide-section">
+        <div class="guide-card">
+          <h2>How to Use the OmniTools Word Counter</h2>
+          <p>
+            The Word Counter is a lightweight, responsive text utility designed for content writers, students, academic researchers, social media managers, and developers. Whether you are composing an essay, adhering to strict tweet limits, or drafting blog meta descriptions, our tool gives you instant visibility into your metrics.
+          </p>
+
+          <h3>Key Metric Explanations</h3>
+          <ul>
+            <li><strong>Words:</strong> Counts distinct words separated by standard spaces, line breaks, or tabs. Multiple spaces between words are collapsed accurately without inflating counts.</li>
+            <li><strong>Characters with Spaces:</strong> Represents the entire string length, including whitespace, symbols, emojis, and punctuation marks. Useful for character-limited platforms like Twitter/X, SMS, and search engine title tags.</li>
+            <li><strong>Characters without Spaces:</strong> Measures your textual content with all whitespaces stripped away, providing an unbiased metric of raw text volume.</li>
+            <li><strong>Sentences:</strong> Identifies sentence structures by detecting period, exclamation mark, and question mark terminal delimiters.</li>
+            <li><strong>Paragraphs:</strong> Recognizes paragraphs separated by line breaks, ignoring blank lines.</li>
+            <li><strong>Estimated Reading Time:</strong> Calculated based on an average adult silent reading speed of 200 words per minute (WPM).</li>
+            <li><strong>Estimated Speaking Time:</strong> Calculated using an average conversational speaking pace of 130 words per minute (WPM), helpful for speeches and presentations.</li>
+          </ul>
+
+          <h3>Helpful Case Conversion Utilities</h3>
+          <p>
+            In addition to calculating metrics, this tool includes one-click formatting utilities. You can transform your text to <code>UPPERCASE</code>, <code>lowercase</code>, <code>Title Case</code>, or <code>Sentence case</code>, or remove redundant double spaces and trailing blank lines with the <strong>Clean Spaces</strong> button.
+          </p>
+
+          <h3>Frequently Asked Questions</h3>
+          <div class="faq-list" style="margin-top: 1.5rem;">
+            <div class="faq-item">
+              <button type="button" class="faq-question" aria-expanded="false">
+                <span>Is my text stored or sent to a third-party server?</span>
+                <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">
+                  No. All calculations are executed synchronously via client-side JavaScript in your browser memory. Your drafts, essays, and notes never touch our servers.
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-question" aria-expanded="false">
+                <span>Is there a maximum word or character limit?</span>
+                <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">
+                  There is no artificial limit. You can paste entire book chapters, lengthy academic papers, or thousands of words without experiencing slowdowns.
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- Shared Footer -->
+  <footer id="site-footer" class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-brand-logo">
+            <div class="brand-icon-box" style="width:34px; height:34px;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+              </svg>
+            </div>
+            <span>OmniTools</span>
+          </a>
+          <p class="footer-desc">
+            Free, fast, and privacy-first online tools built entirely for browser execution.
+          </p>
+        </div>
+        <div>
+          <h4 class="footer-heading">Tools</h4>
+          <ul class="footer-links">
+            <li><a href="word-counter.html">Word Counter</a></li>
+            <li><a href="image-resizer.html">Image Resizer</a></li>
+            <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
+            <li><a href="json-formatter.html">JSON Formatter</a></li>
+            <li><a href="qr-generator.html">QR Code Generator</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="sitemap.html">HTML Sitemap</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Legal</h4>
+          <ul class="footer-links">
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms and Conditions</a></li>
+            <li><a href="disclaimer.html">Disclaimer</a></li>
+            <li><a href="cookie-policy.html">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="current-year">2026</span> OmniTools. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="privacy-policy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="sitemap.html">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <aside id="cookie-banner" class="cookie-banner" aria-label="Cookie Consent Banner">
+    <div class="container cookie-content">
+      <div class="cookie-text">
+        We use essential cookies for theme settings and site preferences. Learn more in our <a href="cookie-policy.html">Cookie Policy</a>.
+      </div>
+      <div class="cookie-actions">
+        <button type="button" id="cookie-accept-essential" class="btn btn-secondary btn-sm">Essential Only</button>
+        <button type="button" id="cookie-accept-all" class="btn btn-primary btn-sm">Accept All</button>
+      </div>
+    </div>
+  </aside>
+
+  <button type="button" class="back-to-top" aria-label="Scroll to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
+
+  <script src="js/theme.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/word-counter.js"></script>
+</body>
+</html>

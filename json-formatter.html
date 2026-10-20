@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON Formatter & Validator - Free Online JSON Beautifier & Minifier</title>
+  <meta name="description" content="Beautify, validate, format, and minify JSON data directly in your browser. Real-time syntax error detection, custom indentation, and file download.">
+  <link rel="canonical" href="https://example.com/json-formatter.html">
+
+  <meta property="og:title" content="JSON Formatter & Validator - Free Online Developer Tool">
+  <meta property="og:description" content="Format, beautify, and validate JSON data securely in your browser. Zero server transmission.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/json-formatter.html">
+
+  <script>
+    (function() {
+      var saved = localStorage.getItem('omnitools_theme');
+      var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && dark)) {
+        document.documentElement.classList.add('dark-theme');
+      }
+    })();
+  </script>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Shared Header -->
+  <header id="site-header" class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="brand-logo" aria-label="OmniTools Homepage">
+        <div class="brand-icon-box">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+          </svg>
+        </div>
+        <span>OmniTools</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="tools.html" class="nav-link active">All Tools</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="theme-toggle-btn" aria-label="Toggle dark/light mode" title="Toggle theme">
+          <svg class="theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <svg class="theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+        </button>
+
+        <button type="button" class="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-nav-drawer">
+      <ul class="mobile-nav-links">
+        <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+        <li><a href="tools.html" class="mobile-nav-link active">All Tools</a></li>
+        <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+        <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <div class="tool-page-header">
+    <div class="container tool-header-content">
+      <div class="tool-header-info">
+        <span class="section-tag">Developer Tool</span>
+        <h1>JSON Formatter & Validator</h1>
+        <p>Beautify, validate, format, and minify JSON data. Catch syntax errors instantly with zero server communication.</p>
+      </div>
+      <div class="tool-privacy-pill">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        <span>Secure: Local Browser Parser (No Cloud API)</span>
+      </div>
+    </div>
+  </div>
+
+  <main class="site-main">
+    <div class="container">
+
+      <!-- Tool Workspace -->
+      <div class="tool-workspace">
+
+        <!-- Action Toolbar -->
+        <div class="tool-action-bar">
+          <div class="action-group">
+            <button type="button" id="jf-btn-format" class="btn btn-primary btn-sm">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="16 18 22 12 16 6"/>
+                <polyline points="8 6 2 12 8 18"/>
+              </svg>
+              <span>Beautify / Format</span>
+            </button>
+            <button type="button" id="jf-btn-minify" class="btn btn-secondary btn-sm">
+              <span>Minify / Compact</span>
+            </button>
+            <button type="button" id="jf-btn-validate" class="btn btn-secondary btn-sm">
+              <span>Validate Only</span>
+            </button>
+            <div style="display: flex; align-items: center; gap: 0.4rem; margin-left: 0.5rem;">
+              <label for="jf-indent" style="font-size: 0.8125rem; font-weight: 600; color: var(--text-muted);">Indentation:</label>
+              <select id="jf-indent" class="form-control" style="padding: 0.35rem 0.65rem; font-size: 0.8125rem; width: auto;">
+                <option value="2" selected>2 Spaces</option>
+                <option value="4">4 Spaces</option>
+                <option value="tab">Tabs</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="action-group">
+            <button type="button" id="jf-btn-sample" class="btn btn-ghost btn-sm">Load Sample</button>
+            <button type="button" id="jf-btn-clear" class="btn btn-secondary btn-sm">Clear</button>
+            <button type="button" id="jf-btn-copy" class="btn btn-secondary btn-sm">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+              </svg>
+              <span>Copy Output</span>
+            </button>
+            <button type="button" id="jf-btn-download" class="btn btn-secondary btn-sm">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              <span>Download .json</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Syntax Status Bar & Error Notice -->
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <span style="font-size: 0.875rem; font-weight: 600;">Status:</span>
+            <span id="jf-status" class="badge badge-secondary">Waiting for input</span>
+          </div>
+          <div style="font-size: 0.8125rem; color: var(--text-muted); display: flex; gap: 1rem;">
+            <span>Input: <strong id="jf-stat-input-size">0 B</strong></span>
+            <span>Output: <strong id="jf-stat-output-size">0 B</strong></span>
+          </div>
+        </div>
+
+        <div id="jf-error-message" style="display: none; background-color: var(--color-danger-bg); color: var(--color-danger); border: 1px solid var(--color-danger); border-radius: var(--radius-md); padding: 0.75rem 1rem; font-family: var(--font-mono); font-size: 0.875rem; margin-bottom: 1rem;">
+        </div>
+
+        <!-- Dual Pane Layout -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+          <div>
+            <label for="jf-input" class="form-label">Input Raw JSON</label>
+            <textarea id="jf-input" class="tool-textarea tool-textarea-mono" style="height: 380px;" placeholder="Paste raw or unformatted JSON here..." aria-label="Input raw JSON"></textarea>
+          </div>
+          <div>
+            <label for="jf-output" class="form-label">Formatted / Minified Result</label>
+            <textarea id="jf-output" class="tool-textarea tool-textarea-mono" style="height: 380px; background-color: var(--bg-tertiary);" placeholder="Formatted JSON will appear here..." readonly aria-label="Formatted JSON output"></textarea>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Designated AdSlot -->
+      <div class="ad-slot-container">
+        <div class="ad-slot-placeholder">
+          <span class="ad-slot-label">Advertisement</span>
+          <span>Responsive Developer Banner Placement</span>
+        </div>
+      </div>
+
+      <!-- Detailed Guide, Syntax Rules & Explanations -->
+      <article class="tool-guide-section">
+        <div class="guide-card">
+          <h2>Understanding JSON Formatting and Syntax Rules</h2>
+          <p>
+            JSON (JavaScript Object Notation) is the de facto lightweight data-interchange format across modern web APIs, microservices, mobile apps, and configuration files. Designed to be both human-readable and machine-parseable, JSON strictly enforces a few fundamental syntax principles.
+          </p>
+
+          <h3>Common JSON Syntax Pitfalls</h3>
+          <ul>
+            <li><strong>Property Names Must Be Double-Quoted:</strong> All object keys must be enclosed in standard double quotation marks (<code>"key"</code>). Single quotes (<code>'key'</code>) or unquoted identifiers will result in a syntax parsing error.</li>
+            <li><strong>No Trailing Commas:</strong> Unlike modern ECMAScript object literals, JSON forbids trailing commas after the last property of an object or element of an array (e.g. <code>{"a": 1,}</code> is invalid).</li>
+            <li><strong>Supported Data Types:</strong> Valid JSON supports Strings, Numbers, Objects, Arrays, Booleans (<code>true</code>, <code>false</code>), and <code>null</code>. Functions, <code>undefined</code>, and Date literals are not permitted in raw JSON.</li>
+            <li><strong>Special Character Escaping:</strong> Control characters, backslashes, and quotes inside strings must be escaped (e.g. <code>\"</code> or <code>\\</code>).</li>
+          </ul>
+
+          <h3>Why Use Client-Side Validation?</h3>
+          <p>
+            Developers frequently inspect payloads containing sensitive user records, authentication tokens, API secrets, or proprietary database documents. Sending unformatted JSON to third-party formatting servers poses a major security and compliance hazard. OmniTools guarantees that parsing and validation occur 100% within your local web browser sandbox using native <code>JSON.parse()</code> and <code>JSON.stringify()</code> implementations.
+          </p>
+
+          <h3>Frequently Asked Questions</h3>
+          <div class="faq-list" style="margin-top: 1.5rem;">
+            <div class="faq-item">
+              <button type="button" class="faq-question" aria-expanded="false">
+                <span>Can this tool handle multi-megabyte JSON payloads?</span>
+                <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">
+                  Yes. Modern V8 and SpiderMonkey engines can easily parse 10MB to 50MB of JSON text in fractions of a second without network latency.
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-question" aria-expanded="false">
+                <span>What is the difference between Beautify and Minify?</span>
+                <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">
+                  <strong>Beautify</strong> formats your JSON with clean line breaks and indentation so developers can read and debug it easily. <strong>Minify</strong> removes all superfluous spaces and line breaks to minimize payload byte size for production network transfer.
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- Shared Footer -->
+  <footer id="site-footer" class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-brand-logo">
+            <div class="brand-icon-box" style="width:34px; height:34px;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+              </svg>
+            </div>
+            <span>OmniTools</span>
+          </a>
+          <p class="footer-desc">
+            Free, fast, and privacy-first online tools built entirely for browser execution.
+          </p>
+        </div>
+        <div>
+          <h4 class="footer-heading">Tools</h4>
+          <ul class="footer-links">
+            <li><a href="word-counter.html">Word Counter</a></li>
+            <li><a href="image-resizer.html">Image Resizer</a></li>
+            <li><a href="percentage-calculator.html">Percentage Calculator</a></li>
+            <li><a href="json-formatter.html">JSON Formatter</a></li>
+            <li><a href="qr-generator.html">QR Code Generator</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="sitemap.html">HTML Sitemap</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Legal</h4>
+          <ul class="footer-links">
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms and Conditions</a></li>
+            <li><a href="disclaimer.html">Disclaimer</a></li>
+            <li><a href="cookie-policy.html">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="current-year">2026</span> OmniTools. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="privacy-policy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="sitemap.html">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <aside id="cookie-banner" class="cookie-banner" aria-label="Cookie Consent Banner">
+    <div class="container cookie-content">
+      <div class="cookie-text">
+        We use essential cookies for theme settings and site preferences. Learn more in our <a href="cookie-policy.html">Cookie Policy</a>.
+      </div>
+      <div class="cookie-actions">
+        <button type="button" id="cookie-accept-essential" class="btn btn-secondary btn-sm">Essential Only</button>
+        <button type="button" id="cookie-accept-all" class="btn btn-primary btn-sm">Accept All</button>
+      </div>
+    </div>
+  </aside>
+
+  <button type="button" class="back-to-top" aria-label="Scroll to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
+
+  <script src="js/theme.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/json-formatter.js"></script>
+</body>
+</html>
