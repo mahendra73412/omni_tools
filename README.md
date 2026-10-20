@@ -145,9 +145,13 @@ OmniTools is 100% compatible with any static hosting platform or CDN.
 
 ### Deploying to GitHub Pages
 1. Push the repository to GitHub.
-2. Go to **Settings** &gt; **Pages**.
-3. Under **Build and deployment**, set Source to **Deploy from a branch**.
-4. Select the `main` branch and `/ (root)` folder, then click **Save**.
+2. Go to **Settings** &gt; **Actions** &gt; **General** and allow GitHub Actions to run.
+3. Go to **Settings** &gt; **Pages** and set the source to **GitHub Actions**.
+4. Push to `main`, or run the **Deploy static site to GitHub Pages** workflow manually.
+5. Add a custom domain in **Settings** &gt; **Pages** when one is available. GitHub Pages will provide HTTPS.
+
+The repository includes `.nojekyll` and `.github/workflows/deploy-pages.yml`, so no build command
+or package installation is required.
 
 ### Deploying to Netlify
 - Drag and drop the `multi-tool-website` folder directly into [Netlify Drop](https://app.netlify.com/drop).
@@ -161,8 +165,9 @@ Before deploying to your production domain, customize the following placeholders
 1. **Domain Name:**
    - Search across files for `https://example.com` and replace with your actual domain (e.g. `https://yourdomain.com`).
    - Updates needed in: `<link rel="canonical">`, `<meta property="og:url">`, `robots.txt`, and `sitemap.xml`.
+   - The placeholder is intentionally retained until a real domain is selected.
 2. **Contact Email:**
-   - Replace `support@example.com` in `contact.html`, `about.html`, `privacy-policy.html`, and footers with your real email.
+   - The current public support address is `trustfive8@gmail.com`; replace it if a dedicated support mailbox is created.
 3. **Social Links:**
    - Update the footer social links (`facebook.com`, `x.com`, `github.com`, `youtube.com`) with your profile URLs.
 4. **Google AdSense Configuration:**
@@ -177,6 +182,7 @@ Before deploying to your production domain, customize the following placeholders
 - **Secure Storage:** Uses modern `localStorage` for theme preferences only; no sensitive tokens or passwords stored.
 - **Memory Safety:** Automatically revokes canvas Blob URLs (`URL.revokeObjectURL`) to prevent memory leaks during heavy image resizing operations.
 - **Input Sanitization:** All text inputs and calculations are validated to prevent cross-site scripting (XSS) or application crashes.
+- **Static-host deployment:** GitHub Pages deployment is automated by the included workflow and does not require server credentials in the repository.
 
 ---
 

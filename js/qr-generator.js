@@ -72,7 +72,8 @@ document.addEventListener('DOMContentLoaded', function() {
         qrStatus.textContent = 'QR Code generated (' + size + 'x' + size + ' px)';
       }
     } catch (err) {
-      qrCanvasContainer.innerHTML = '<div class="qr-placeholder"><p style="color:var(--color-danger);">Generation failed: ' + err.message + '</p></div>';
+      qrCanvasContainer.innerHTML = '<div class="qr-placeholder"><p style="color:var(--color-danger);"></p></div>';
+      qrCanvasContainer.querySelector('p').textContent = 'Generation failed: ' + err.message;
       if (qrStatus) qrStatus.textContent = 'Error: ' + err.message;
     }
   }

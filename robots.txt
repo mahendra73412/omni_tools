@@ -4,5 +4,5 @@
 User-agent: *
 Allow: /
 
-# Sitemap Location
+# Replace example.com with the final production domain before launch.
 Sitemap: https://example.com/sitemap.xml
